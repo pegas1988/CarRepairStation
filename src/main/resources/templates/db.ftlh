@@ -6,6 +6,7 @@
 <@c.page>
     <div>
         <h1>All cars in base:</h1>
+        egegey
     </div>
     <@b.perebor/>
     <form method="post" action="/deleted" class="form-inline">
