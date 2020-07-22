@@ -7,6 +7,7 @@
     <div>
         <h1>All cars in base:</h1>
         <a> this is a ne line for GitHub</a>
+        <a> and again</a>
     </div>
     <@b.perebor/>
     <form method="post" action="/deleted" class="form-inline">
