@@ -1,0 +1,17 @@
+com\example\sweater\domain\User.class
+com\example\sweater\controller\ControllerUtils.class
+com\example\sweater\repos\MessageRepo.class
+com\example\sweater\Application.class
+com\example\sweater\Config\MailConfig.class
+com\example\sweater\controller\MainController.class
+com\example\sweater\domain\Messages.class
+com\example\sweater\controller\UserController.class
+com\example\sweater\domain\dto\CaptchaResponseDto.class
+com\example\sweater\service\MailSender.class
+com\example\sweater\repos\UserRepo.class
+com\example\sweater\secutingweb\WebSecurityConfig.class
+com\example\sweater\Config\EncriptionConfig.class
+com\example\sweater\Config\MvcConfig.class
+com\example\sweater\controller\RegistrationController.class
+com\example\sweater\service\UserService.class
+com\example\sweater\domain\Role.class
