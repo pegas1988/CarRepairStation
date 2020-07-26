@@ -7,9 +7,18 @@
                         <img src="/img/${message.filename}" class="card-img-top">
                     </#if>
                 </div>
-
+                <div>
+                    <#if message.filename3??>
+                        <img src="/img/${message.filename3}" class="card-img-top">
+                    </#if>
+                </div>
+                <div>
+                    <#if message.filename2??>
+                        <img src="/img/${message.filename2}" class="card-img-top">
+                    </#if>
+                </div>
                 <div class="form ml-3">
-                    Модель авто:
+                    Марка авто:
                     <b>${message.tag}</b>
                 </div>
                 <div class="form ml-3">
@@ -17,7 +26,7 @@
                     <b>${message.id}</b>
                 </div>
                 <div class="form ml-3">
-                    Модель:
+                    Модель авто:
                     <b>${message.text}</b>
                 </div>
                 <div class="form ml-3">
@@ -53,6 +62,16 @@
                 <div>
                     <#if message.filename??>
                         <img src="/img/${message.filename}" class="card-img-top">
+                    </#if>
+                </div>
+                <div>
+                    <#if message.filename2??>
+                        <img src="/img/${message.filename2}" class="card-img-top">
+                    </#if>
+                </div>
+                <div>
+                    <#if message.filename3??>
+                        <img src="/img/${message.filename3}" class="card-img-top">
                     </#if>
                 </div>
                 <div class="form ml-3">
@@ -107,7 +126,15 @@
                 </div>
                 <div class="custom-file">
                     <input type="file" name="file" id="customFile">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    <label class="custom-file-label" for="customFile">Выберите фото</label>
+                </div>
+                <div class="custom-file mt-3">
+                    <input type="file" name="file2" id="customFile2">
+                    <label class="custom-file-label" for="customFile2">Выберите фото</label>
+                </div>
+                <div class="custom-file mt-3">
+                    <input type="file" name="file3" id="customFile3">
+                    <label class="custom-file-label" for="customFile3" >Выберите фото</label>
                 </div>
 
                 <button type="submit" style="width: 250px" class="btn btn-primary mt-2" >Добавить</button>

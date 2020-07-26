@@ -60,7 +60,9 @@ public class MainController {
             @RequestParam int year,
             @RequestParam String colour,
             Model model,
-            @RequestParam ("file")MultipartFile file
+            @RequestParam ("file")MultipartFile file,
+            @RequestParam ("file2")MultipartFile file2,
+            @RequestParam ("file3")MultipartFile file3
     ) throws IOException {
         message.setAuthor(user);
 
@@ -81,6 +83,25 @@ public class MainController {
                 file.transferTo(new File(uploadPath + "/" + resultFileName));
 
                 message.setFilename(resultFileName);
+            }
+             if (file2 != null && !file2.getOriginalFilename().isEmpty()) {
+
+
+                String uuidFile = UUID.randomUUID().toString();
+                String resultFileName2 = uuidFile + "." + file2.getOriginalFilename();
+
+                file2.transferTo(new File(uploadPath + "/" + resultFileName2));
+
+                message.setFilename2(resultFileName2);
+            }
+             if (file3 != null && !file3.getOriginalFilename().isEmpty()) {
+
+                String uuidFile = UUID.randomUUID().toString();
+                String resultFileName3 = uuidFile + "." + file3.getOriginalFilename();
+
+                file3.transferTo(new File(uploadPath + "/" + resultFileName3));
+
+                message.setFilename3(resultFileName3);
             }
 
             model.addAttribute("message", null);

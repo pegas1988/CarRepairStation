@@ -28,6 +28,8 @@ public class Messages {
     private User author;
 
     private String filename;
+    private String filename2;
+    private String filename3;
 
     public Messages(Long id, String text, String tag, int year, String colour, User author, String filename) {
         this.id = id;
@@ -37,6 +39,34 @@ public class Messages {
         this.colour = colour;
         this.author = author;
         this.filename = filename;
+    }
+
+    public String getFilename2() {
+        return filename2;
+    }
+
+    public void setFilename2(String filename2) {
+        this.filename2 = filename2;
+    }
+
+    public String getFilename3() {
+        return filename3;
+    }
+
+    public void setFilename3(String filename3) {
+        this.filename3 = filename3;
+    }
+
+    public Messages(Long id, String text, String tag, int year, String colour, User author, String filename, String filename2, String filename3) {
+        this.id = id;
+        this.text = text;
+        this.tag = tag;
+        this.year = year;
+        this.colour = colour;
+        this.author = author;
+        this.filename = filename;
+        this.filename2 = filename2;
+        this.filename3 = filename3;
     }
 
     public String getFilename() {
