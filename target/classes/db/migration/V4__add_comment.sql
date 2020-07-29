@@ -1,0 +1,1 @@
+ALTER TABLE messages ADD comment varchar(400);
