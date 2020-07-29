@@ -27,9 +27,19 @@ public class Messages {
     @JoinColumn(name = "user_id")
     private User author;
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     private String filename;
     private String filename2;
     private String filename3;
+
+    private String comment;
 
     public Messages(Long id, String text, String tag, int year, String colour, User author, String filename) {
         this.id = id;
@@ -67,6 +77,18 @@ public class Messages {
         this.filename = filename;
         this.filename2 = filename2;
         this.filename3 = filename3;
+    }
+    public Messages(Long id, String text, String tag, int year, String colour, User author, String filename, String filename2, String filename3, String comment) {
+        this.id = id;
+        this.text = text;
+        this.tag = tag;
+        this.year = year;
+        this.colour = colour;
+        this.author = author;
+        this.filename = filename;
+        this.filename2 = filename2;
+        this.filename3 = filename3;
+        this.comment = comment;
     }
 
     public String getFilename() {
