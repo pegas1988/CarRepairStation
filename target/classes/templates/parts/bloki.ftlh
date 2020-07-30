@@ -37,12 +37,20 @@
                     Цвет авто:
                     <b>${message.colour}</b>
                 </div>
-                <div class="input-group">
-                    <div class="input-group-prepend mt-3">
-                        <span class="input-group-text">Комментарий</span>
+                <form method="post" action="/refresh" class="form-inline">
+                    <div class="input-group">
+                        <div class="input-group-prepend mt-3">
+                            <span class="input-group-text">Комментарий</span>
+                        </div>
+                        <textarea class="form-control mt-3" name="myTextArea" aria-label="With textarea">${message.comment}</textarea>
+                        <div class="col-l-2 my-2 ml-5">
+                            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                            <input type="hidden" name="id" class="form-control" value="${message.id}" style="width: 120px"/>
+
+                            <button class="btn btn-success btn-s btn-block" style="width: 250px" type="submit">Refresh</button>
+                        </div>
                     </div>
-                    <textarea class="form-control mt-3" aria-label="With textarea">${message.comment}</textarea>
-                </div>
+                </form>
                 <form method="post" action="/deleted" class="form-inline">
                     <div class="col-l-2 my-2 ml-5">
                         <input type="hidden" name="_csrf" value="${_csrf.token}"/>

@@ -24,10 +24,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -57,6 +56,9 @@ public class MainController {
         return "main";
     }
 
+    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    Date date = new Date();
+
     @PostMapping("/")
     public String add(
             @AuthenticationPrincipal User user,
@@ -73,9 +75,9 @@ public class MainController {
         message.setAuthor(user);
 
         if ( !comment.equals(""))
-            message.setComment(comment);
+            message.setComment(comment + "\n" + "Updated: " + dateFormat.format(date));
         else
-            message.setComment("Chubaka");
+            message.setComment("Chubaka moy geroy");
 
         if (bindingResult.hasErrors()){
             Map<String, String> errorsMap = ControllerUtils.getErrors(bindingResult);
@@ -139,6 +141,19 @@ public class MainController {
         return "deleted";
     }
 
+    // refresh button logic
+    @PostMapping("refresh")
+    public String refresh(@RequestParam("id") Long id, @RequestParam("myTextArea") String comment, Map<String, Object> model ){
+
+        Messages message = messageRepo.findById(id);
+        message.setComment(comment);
+        messageRepo.save(message);
+
+        Iterable<Messages> messages = messageRepo.findAll();
+        model.put("messages", messages);
+        return "db";
+    }
+
     @PostMapping("filter")
     public String filter(@RequestParam String filter, Map<String, Object> model) {
         Iterable<Messages> messages;
@@ -158,8 +173,8 @@ public class MainController {
         Iterable<Messages> messages;
 
 
-            messages = messageRepo.findAll();
-            model.put("messages", messages);
+        messages = messageRepo.findAll();
+        model.put("messages", messages);
 
         return "db";
     }
